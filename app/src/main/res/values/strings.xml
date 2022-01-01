@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">stepcounter</string>
+    <string name="football">football</string>
+    <string name="rugby">rugby</string>
+    <string name="basketball">basketball</string>
+    <string name="running">running</string>
+    <string name="starter">When it comes to football its important to have a strong base, the exercises train your legs to achieve this and increase your performance. <br> </br></string>
+    <string name="bar"><br> </br> The above picture is called a trap bar deadlift, the variation of deadlift makes lifting easier on the lower back and lets the person lift more weight, less stress on the spine and back helps decrease injuries for players and the exercise helps increase lower body strength. </string>
+    <string name="backsquat"><br> </br> The above picture is called a back squat, its included in Ronaldos workouts to increase leg strength, the exercise works the quads increasing lower body strength, the exercise is popular with athletes because of how its easy to set up and the results people obtain. </string>
+    <string name="dumbbell"><br> </br> The above picture is called a dumbbell lateral lunge, the exercise increases strength, flexibility and mobility and its important for footballers because they need to be able to move around and they need to be able to change their direction in seconds to get away from players from the other team when they have the ball to get the best opportunity to score goals. </string>
+    <string name="bench"><br> </br> The above picture is called a bench press, upper body strength is important like lower body strength in football,bench press helps players get a bigger chest that helps players get through defenders and makes it easier to get to the other teams side and score goals and it helps players defend because it makes it harder for the other team to get past them. </string>
+    <string name="fsqua"><br> </br> The above picture is called a front squat, its included in Ronaldos workouts to increase leg strength, the exercise works the quads increasing lower body strength and has slightly better results than a back squat making it popular for athletes, the exercise is easy for athletes to set up and it gives the players good results. </string>
+    <string name="backsqu"><br> </br> The above picture is called a back squat, the exercise works the quads increasing lower body strength, the exercise is popular with athletes because of how its easy to set up and the results people obtain. </string>
+    <string name="bulgariansplitsqu"><br> </br> The above picture is called a bulgarian split squat, the exercise works the quads and increases explosiveness which is important for speed and vertical, this exercise with split squat jumps increases basketball performance. </string>
+    <string name="glutebr"><br> </br> The above picture is called a glute bridge, the exercise works the glutes and increases its muscle firing, the exercise is important for players being explosive and their vertical. </string>
+    <string name="starte2">When it comes to basketball, similar to football its important to have a very strong base, legs have an important role in basketball, the exercises train your legs to achieve strength, explosiveness and player performance <br> </br></string>
+
+
+</resources>
