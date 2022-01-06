@@ -32,4 +32,29 @@
         </activity>
     </application>
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content'
+        android:id="@+id/et_source"
+        android:hint="Enter Source Location"
+        android:padding="12dp"
+        android:background="@android:drawable/editbox_background"/>
+    <EditText
+        android:layout_width="match parent"
+        android:layout_height="wrap_ content"
+        android:id="@+id/et destination"
+        android:hint="Enter Destination Location"
+        android:padding="12dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:drawable/editbox_background"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/text_view"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:gravity="center"/>
+
 </manifest>
