@@ -124,7 +124,8 @@ public class MainActivity extends AppCompatActivity {
         //Initialize status
             Status status = Autocomplete.getStatusFromIntent(data);
         //Display toast
-            Toast.makeText (getApplicationContext(),status.getStatusMessage() ,Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),status.getStatusMessage()
+                    ,Toast.LENGTH_SHORT).show();
         }
     }
 
