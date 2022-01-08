@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sport">
         <activity
+            android:name=".mapActivity2"
+            android:exported="false" />
+        <activity
             android:name=".NutritionActivity"
             android:exported="false" />
         <activity
