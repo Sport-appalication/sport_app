@@ -27,47 +27,30 @@
             android:layout_below="@id/title"
             android:layout_marginTop="20dp"
             android:src="@mipmap/ic_launcher" />
+
         <RelativeLayout
+            android:id="@+id/sportdetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/sportdetails"
             android:layout_below="@+id/exerciseImage"
             android:layout_centerHorizontal="true">
-    <TextView
-        android:layout_marginTop="50dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Number of step:"
-        android:id="@+id/textStep"
-        android:layout_centerHorizontal="true"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textStep"
-        android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@id/textStep"
-        android:text="10"
-        android:id="@+id/numberofstep"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="number of sesion:"
-        android:id="@+id/textsesion"
-        android:layout_below="@+id/textStep"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
+            <TextView
+                android:id="@+id/textStep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:text="Number of step:" />
 
-    <TextView
-        android:id="@+id/numberofsesion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textsesion"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@+id/textsesion"
-        android:text="5" />
-
+            <TextView
+                android:id="@+id/textsesion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textStep"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="number of sesion:" />
             <Button
                 android:id="@+id/startbtm"
                 android:layout_width="200dp"
@@ -100,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:text=""
-                android:textColor="@color/black"
+                android:textColor="@color/blue2"
                 android:textSize="30dp"
                 android:textStyle="bold"
                 android:layout_marginTop="30dp"

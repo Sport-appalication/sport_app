@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/blue2"
         app:cardCornerRadius="20dp">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                 android:textSize="30dp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textAllCaps="true"
                 android:id="@+id/settingtxt"/>
             <ImageView

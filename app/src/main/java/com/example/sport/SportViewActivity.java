@@ -19,7 +19,7 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
     private static Sport sport;
     private ImageView exercise,food,profil;
     Intent intent;
-    private long startTime = 300000;
+    private long startTime = 3000;
     private CountDownTimer countDownTimer;
     private boolean timerRunning = false;
     private long timeLeft = startTime;
@@ -27,8 +27,11 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
     private Button stop;
     private Button finish;
     private TextView timer;
+    private TextView sesionView;
     private RelativeLayout detail;
     private RelativeLayout started;
+    private int sesionCount;
+    int cunumofsesion = 1;
     public static void setSportView(Sport sport) {
         SportViewActivity.sport = sport;
     }
@@ -45,14 +48,16 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
         food.setOnClickListener(this);
         profil.setOnClickListener(this);
         exercise.setImageResource(R.drawable.exercise_selected_icon);
-        sport.setNumberofsesion(10);
-        sport.setNumberofstep(10);
+        sport.setNumberofsesion(5);
+        sport.setNumberofstep(5);
         sportname = findViewById(R.id.title);
-        numberofseion = findViewById(R.id.numberofsesion);
-        numberofstep = findViewById(R.id.numberofstep);
+        numberofseion = findViewById(R.id.textsesion);
+        numberofstep = findViewById(R.id.textStep);
         sportname.setText(sport.getName());
-        numberofstep.setText(""+sport.getNumberofstep());
-        numberofseion.setText(""+sport.getNumberofsesion());
+        sesionCount = sport.getNumberofsesion();
+        sesionView = findViewById(R.id.sesioncount);
+        numberofstep.setText("Number of Step: "+sport.getNumberofstep());
+        numberofseion.setText("NUmber of Sesion: "+sport.getNumberofsesion());
         start = findViewById(R.id.startbtm);
         timer = findViewById(R.id.timertext);
         detail = findViewById(R.id.sportdetails);
@@ -70,11 +75,7 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
         stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startTime();
-                countDownTimer.cancel();
-                detail.setVisibility(View.VISIBLE);
-                started.setVisibility(View.INVISIBLE);
-                timer.setText("");
+                restart();
             }
         });
         finish.setOnClickListener(new View.OnClickListener() {
@@ -115,7 +116,15 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
 
             @Override
             public void onFinish() {
-                finish.setVisibility(View.VISIBLE);
+                if(sesionCount >0) {
+                    updatesesion();
+                    finish.setVisibility(View.VISIBLE);
+                }
+                else{
+                    timer.setText("well done exerces over");
+                    stop.setText("Done");
+                }
+                sesionCount--;
             }
         }.start();
     }
@@ -123,7 +132,20 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
         int minute = (int) (timeLeft /1000) / 60;
         int seconds = (int) (timeLeft /1000) % 60;
         String timertext = String.format(Locale.getDefault(),"%02d : %02d",minute,seconds);
-        timertext = "cool down \n" +"    "+ timertext;
+        timertext = "cool down \n" +"   "+ timertext;
         timer.setText(timertext);
+    }
+    public void  restart(){
+        countDownTimer.cancel();
+        detail.setVisibility(View.VISIBLE);
+        started.setVisibility(View.INVISIBLE);
+        timer.setText("");
+        finish.setVisibility(View.VISIBLE);
+        sesionView.setText("Sesion: 1");
+        stop.setText("stop");
+    }
+    public void updatesesion(){
+        cunumofsesion = (sport.getNumberofsesion() - sesionCount) + 1;
+        sesionView.setText("Sesion: " + cunumofsesion);
     }
 }

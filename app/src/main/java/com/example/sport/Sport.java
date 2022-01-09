@@ -4,8 +4,8 @@ public class Sport {
     private String name;
     private String description;
     private String imageUrl;
-    private int numberofsesion;
-    private int numberofstep;
+    private int numberofsesion = 5;
+    private int numberofstep = 5;
     private int icon;
 
     public Sport(String name, String description,String imageUrl,int icon) {
