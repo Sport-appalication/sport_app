@@ -36,12 +36,7 @@ public class UserSettingAdapter extends RecyclerView.Adapter<UserSettingAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull Viewholds holder, @SuppressLint("RecyclerView") int position) {
-        holder.parent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
     }
 
     @Override

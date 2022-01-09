@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserProfilActivity"
-    android:padding="20dp">
+    tools:context=".UserProfilActivity">
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -28,9 +27,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/username"
         android:layout_marginTop="30dp"
-        android:id="@+id/usersetting"/>
+        android:id="@+id/usersetting"
+        android:layout_marginBottom="50dp"/>
 
-
-
+    <include layout="@layout/navbar"/>
 
 </RelativeLayout>

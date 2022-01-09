@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         logIn.setOnClickListener(this);
         signUp.setOnClickListener(this);
         if(islogin){
-            intent = new Intent(this, mapActivity2.class);
+            intent = new Intent(this, UserProfilActivity.class);
             startActivity(intent);
         }
     }

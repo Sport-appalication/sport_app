@@ -5,24 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NutritionActivity">
-    <TextView
-        android:id="@+id/title"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Nutrition"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:layout_marginTop="50dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:text="Food Name"
-        android:layout_below="@+id/title"
-        android:layout_marginTop="100dp"
-        android:id="@+id/foodnametext"/>
+        android:layout_margin="30dp"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="Nutrition"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/foodnametext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+
+            android:layout_marginTop="100dp"
+            android:text="Food Name" />
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -63,6 +70,7 @@
         android:backgroundTint="@color/blue"
         android:text="sudmit"
         android:id="@+id/sumbit"/>
-
+    </RelativeLayout>
+    <include layout="@layout/navbar"/>
 
 </RelativeLayout>

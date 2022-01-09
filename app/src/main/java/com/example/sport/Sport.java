@@ -3,12 +3,21 @@ package com.example.sport;
 public class Sport {
     private String name;
     private String description;
+    private String imageUrl;
     private int numberofsesion;
     private int numberofstep;
+    private int icon;
 
-    public Sport(String name, String description) {
+    public Sport(String name, String description,String imageUrl,int icon) {
         this.name = name;
         this.description = description;
+        this.imageUrl = imageUrl;
+        this.icon = icon;
+    }
+    public Sport(String name, String description,int icon) {
+        this.name = name;
+        this.description = description;
+        this.icon = icon;
     }
 
     public String getName() {
@@ -33,5 +42,13 @@ public class Sport {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public int getIcon() {
+        return icon;
     }
 }

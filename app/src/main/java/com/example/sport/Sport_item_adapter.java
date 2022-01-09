@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -33,6 +34,7 @@ public class Sport_item_adapter extends RecyclerView.Adapter<Sport_item_adapter.
     @Override
     public void onBindViewHolder(@NonNull Sport_item_adapter.Viewhold holder, @SuppressLint("RecyclerView") int position) {
         holder.tview.setText(sports.get(position).getName());
+        holder.icon.setImageResource(sports.get(position).getIcon());
     }
 
     @Override
@@ -49,11 +51,13 @@ public class Sport_item_adapter extends RecyclerView.Adapter<Sport_item_adapter.
         private TextView tview;
         private RelativeLayout parent;
         private Button start;
+        private ImageView icon;
         public Viewhold(@NonNull View itemView) {
             super(itemView);
             tview = itemView.findViewById(R.id.sportnametxt);
             parent = itemView.findViewById(R.id.parent);
             start =  itemView.findViewById(R.id.start);
+            icon = itemView.findViewById(R.id.sporticon);
             start.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
