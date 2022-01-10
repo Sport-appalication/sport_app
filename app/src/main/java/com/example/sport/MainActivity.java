@@ -12,7 +12,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button logIn;
     private Button signUp;
-    private boolean islogin = true;
+    private boolean islogin = false;
     Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -12,25 +12,20 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.Locale;
 
 public class SportViewActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextView sportname,numberofseion,numberofstep;
+    private TextView sportname,numberofseion,numberofstep, timer,sesionView;
     private static Sport sport;
-    private ImageView exercise,food,profil;
+    private ImageView exercise,food,profil,iconV;
     Intent intent;
     private long startTime = 3000;
     private CountDownTimer countDownTimer;
-    private boolean timerRunning = false;
     private long timeLeft = startTime;
-    private Button start;
-    private Button stop;
-    private Button finish;
-    private TextView timer;
-    private TextView sesionView;
-    private RelativeLayout detail;
-    private RelativeLayout started;
-    private int sesionCount;
+    private Button start,stop, finish;
+    private RelativeLayout detail,started;
     int cunumofsesion = 1;
     public static void setSportView(Sport sport) {
         SportViewActivity.sport = sport;
@@ -43,6 +38,7 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_sport_view);
         exercise = findViewById(R.id.exercise_link);
         food = findViewById(R.id.food_link);
+        iconV = findViewById(R.id.exerciseImage);
         profil = findViewById(R.id.profil_link);
         exercise.setOnClickListener(this);
         food.setOnClickListener(this);
@@ -54,7 +50,6 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
         numberofseion = findViewById(R.id.textsesion);
         numberofstep = findViewById(R.id.textStep);
         sportname.setText(sport.getName());
-        sesionCount = sport.getNumberofsesion();
         sesionView = findViewById(R.id.sesioncount);
         numberofstep.setText("Number of Step: "+sport.getNumberofstep());
         numberofseion.setText("NUmber of Sesion: "+sport.getNumberofsesion());
@@ -64,6 +59,11 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
         started = findViewById(R.id.sportstared);
         finish = findViewById(R.id.finishsesion);
         stop = findViewById(R.id.stop);
+        Glide.with(this)
+                .asGif()
+                .load(sport.getImageUrl())
+                .into(iconV);
+
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -116,15 +116,17 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
 
             @Override
             public void onFinish() {
-                if(sesionCount >0) {
+                cunumofsesion++;
+                if(cunumofsesion < sport.getNumberofsesion()) {
+                    timer.setText("let go again");
                     updatesesion();
                     finish.setVisibility(View.VISIBLE);
                 }
                 else{
-                    timer.setText("well done exerces over");
+                    updatesesion();
+                    timer.setText("last one anf we done");
                     stop.setText("Done");
                 }
-                sesionCount--;
             }
         }.start();
     }
@@ -143,9 +145,9 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
         finish.setVisibility(View.VISIBLE);
         sesionView.setText("Sesion: 1");
         stop.setText("stop");
+        cunumofsesion = 1;
     }
     public void updatesesion(){
-        cunumofsesion = (sport.getNumberofsesion() - sesionCount) + 1;
         sesionView.setText("Sesion: " + cunumofsesion);
     }
 }

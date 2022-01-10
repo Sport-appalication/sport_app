@@ -12,20 +12,21 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:id="@+id/usernameimage"/>
+
     <TextView
+        android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ussername"
         android:layout_below="@+id/usernameimage"
-        android:textSize="20dp"
-        android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:id="@+id/username"/>
+        android:text="Ussername"
+        android:textSize="20dp"
+        android:textStyle="bold" />
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/username"
+        android:layout_below="@+id/user_name"
         android:layout_marginTop="30dp"
         android:id="@+id/usersetting"
         android:layout_marginBottom="50dp"/>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "184825629039",
+    "project_id": "stayfit-d60ab",
+    "storage_bucket": "stayfit-d60ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184825629039:android:f8cbafc78d569da003809a",
+        "android_client_info": {
+          "package_name": "com.example.sport"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184825629039-jotbb38907561njpkg3cgf0v1of44rss.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg5GfDIIEDgDhNpxFqUXcU3TomxZGmDpE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184825629039-jotbb38907561njpkg3cgf0v1of44rss.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

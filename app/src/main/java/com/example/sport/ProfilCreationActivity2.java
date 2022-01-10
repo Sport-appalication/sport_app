@@ -19,15 +19,9 @@ public class ProfilCreationActivity2 extends AppCompatActivity  {
         setContentView(R.layout.activity_profil_creation2);
         rview = findViewById(R.id.rviewBodyType);
         ArrayList<BodyType> bodyTypes = new ArrayList<>();
-        bodyTypes.add(new BodyType("emma","dwfwd"));
-        bodyTypes.add(new BodyType("emma","dwfwd"));
-        bodyTypes.add(new BodyType("emma","dwfwd"));
-        bodyTypes.add(new BodyType("emma","dwfwd"));
-        bodyTypes.add(new BodyType("emma","dwfwd"));
-        bodyTypes.add(new BodyType("emma","dwfwd"));
-        bodyTypes.add(new BodyType("emma","dwfwd"));
-        bodyTypes.add(new BodyType("emma","dwfwd"));
-        bodyTypes.add(new BodyType("emma","dwfwd"));
+        bodyTypes.add(new BodyType("Detail","dwfwd"));
+        bodyTypes.add(new BodyType("Schule","dwfwd"));
+        bodyTypes.add(new BodyType("Log out","dwfwd"));
         bodyTypeList list = new bodyTypeList(this);
         list.setbodyTypes(bodyTypes);
         rview.setAdapter(list);
