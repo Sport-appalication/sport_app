@@ -5,11 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NutritionActivity">
+
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:layout_centerHorizontal="true">
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp">
 
         <TextView
             android:id="@+id/title"
@@ -22,54 +26,41 @@
             android:textSize="30dp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/foodnametext"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/search_bar"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="20dp"
+            android:hint="Search" />
 
-            android:layout_marginTop="100dp"
-            android:text="Food Name" />
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Food name"
-        android:layout_below="@+id/foodnametext"
-        android:id="@+id/foodname"
-        android:layout_alignStart="@+id/foodnametext"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Quaity in G"
-        android:id="@+id/quatitytext"
-        android:layout_below="@+id/foodname"
-        android:layout_alignStart="@+id/foodnametext"
-        android:layout_marginTop="40dp"/>
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Quaity in G"
-        android:layout_below="@+id/quatitytext"
-        android:layout_alignStart="@+id/quatitytext"
-        android:id="@+id/quatity"/>
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/quatity"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="@color/blue"
-        android:text="ADD"
-        android:id="@+id/add"/>
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/add"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="@color/blue"
-        android:text="sudmit"
-        android:id="@+id/sumbit"/>
+        <Button
+            android:id="@+id/searchBtm"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/search_bar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/blue"
+            android:text="search" />
+
+        <TextView
+            android:id="@+id/errorDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/searchBtm"
+            android:layout_centerHorizontal="true"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rFoodV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/errorDisplay" />
     </RelativeLayout>
     <include layout="@layout/navbar"/>
 
