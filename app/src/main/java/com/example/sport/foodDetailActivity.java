@@ -37,6 +37,7 @@ public class foodDetailActivity extends AppCompatActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_food_detail);
         exercise = findViewById(R.id.exercise_link);
         nutrution = findViewById(R.id.food_link);
         profil = findViewById(R.id.profil_link);
@@ -44,7 +45,6 @@ public class foodDetailActivity extends AppCompatActivity implements View.OnClic
         exercise.setOnClickListener(this);
         nutrution.setOnClickListener(this);
         profil.setOnClickListener(this);
-        setContentView(R.layout.activity_food_detail);
         Foodname = findViewById(R.id.foodname);
         Fat = findViewById(R.id.Fat);
         Calorie = findViewById(R.id.callorie);
