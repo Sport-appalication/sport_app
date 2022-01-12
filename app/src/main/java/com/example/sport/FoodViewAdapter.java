@@ -2,6 +2,7 @@ package com.example.sport;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,12 +33,6 @@ public class FoodViewAdapter extends RecyclerView.Adapter<FoodViewAdapter.Viewho
     @Override
     public void onBindViewHolder(@NonNull com.example.sport.FoodViewAdapter.ViewholdView holder, @SuppressLint("RecyclerView") int position) {
         holder.tview.setText(FoodList.get(position).getName());
-        holder.parent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
     }
 
     @Override
@@ -51,6 +46,14 @@ public class FoodViewAdapter extends RecyclerView.Adapter<FoodViewAdapter.Viewho
             super(itemView);
             tview = itemView.findViewById(R.id.foodname);
             parent = itemView.findViewById(R.id.parent);
+            parent.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    foodDetailActivity.setFood(FoodList.get(getAdapterPosition()));
+                    Intent intent = new Intent(context, foodDetailActivity.class);
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 
