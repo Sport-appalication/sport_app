@@ -45,6 +45,9 @@ public class UserSettingAdapter extends RecyclerView.Adapter<UserSettingAdapter.
                     case 0:
                         context.startActivity(new Intent(context,DetailsActivity.class));
                         break;
+                    case 1:
+                        context.startActivity(new Intent(context,ReminderActivity.class));
+                        break;
                     case 2:
                         connectionSql.logout();
                         context.startActivity(new Intent(context, MainActivity.class));
