@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LogInActivity2 extends AppCompatActivity implements View.OnClickListener {
     private EditText password,email;
-    private Button login;
+    private Button login,signUp;
     ConnectionSql connectionSql= new ConnectionSql();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,8 @@ public class LogInActivity2 extends AppCompatActivity implements View.OnClickLis
         password = findViewById(R.id.password);
         email = findViewById(R.id.Email);
         login = findViewById(R.id.loginbtm);
+        signUp = findViewById(R.id.signuplink);
+        signUp.setOnClickListener(this);
         login.setOnClickListener(this);
     }
 
@@ -31,6 +33,12 @@ public class LogInActivity2 extends AppCompatActivity implements View.OnClickLis
         switch (view.getId()){
             case R.id.loginbtm:
                 logUser();
+                break;
+            case R.id.signuplink:
+                startActivity(new Intent(this, SignUpActivity2.class));
+                break;
+            default:
+                break;
         }
     }
     public void logUser(){

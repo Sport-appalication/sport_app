@@ -21,7 +21,7 @@ public class SignUpActivity2 extends AppCompatActivity implements View.OnClickLi
     private boolean hasprofil = true;
     private TextView title;
     private EditText password,email,username;
-    private Button signup;
+    private Button signup,logIn;
     ConnectionSql connectionSql= new ConnectionSql();
     private User user;
     private FirebaseAuth mAuth;
@@ -35,6 +35,8 @@ public class SignUpActivity2 extends AppCompatActivity implements View.OnClickLi
         username = findViewById(R.id.username);
         signup = findViewById(R.id.signupbtm);
         mAuth = FirebaseAuth.getInstance();
+        logIn = findViewById(R.id.loginLink);
+        logIn.setOnClickListener(this);
         signup.setOnClickListener(this);
     }
 
@@ -43,6 +45,9 @@ public class SignUpActivity2 extends AppCompatActivity implements View.OnClickLi
         switch (view.getId()){
             case R.id.signupbtm:
                 register();
+                break;
+            case R.id.loginLink:
+                startActivity(new Intent(this, LogInActivity2.class));
                 break;
             default:
                 break;
