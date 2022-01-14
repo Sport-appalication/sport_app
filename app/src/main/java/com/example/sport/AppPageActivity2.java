@@ -34,6 +34,7 @@ public class AppPageActivity2 extends AppCompatActivity implements View.OnClickL
         sports.add(new Sport("Crunches","classic core exercise. It specifically trains your abdominal muscles","https://flabfix.com/wp-content/uploads/2019/05/Crunches.gif",R.mipmap.crusfinal));
         sports.add(new Sport("Dips","A dip is an upper-body strength exercise","https://flabfix.com/wp-content/uploads/2019/05/Dips.gif",R.mipmap.dipsfinal));
         sports.add(new Sport("Step Up Lunge","A step-up is a simple body resistance exercise that works muscles in the legs and buttocks","https://flabfix.com/wp-content/uploads/2019/06/Step-Up-Lunge.gif",R.mipmap.stepuplungefinal));
+        sports.add(new Sport("Skipping Rope","","",R.mipmap.skippingropefinal));
         Sport_item_adapter adapter = new Sport_item_adapter(this);
         adapter.setSports(sports);
         rviewSport.setAdapter(adapter);

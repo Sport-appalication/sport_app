@@ -63,9 +63,14 @@ public class Sport_item_adapter extends RecyclerView.Adapter<Sport_item_adapter.
             start.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    SportViewActivity.setSportView(sports.get(getAdapterPosition()));
-                    Intent intent = new Intent(context, SportViewActivity.class);
-                    context.startActivity(intent);
+                    if(getAdapterPosition() == 6){
+                        context.startActivity(new Intent(context, SkippingActivity.class));
+                    }
+                    else {
+                        SportViewActivity.setSportView(sports.get(getAdapterPosition()));
+                        Intent intent = new Intent(context, SportViewActivity.class);
+                        context.startActivity(intent);
+                    }
                 }
             });
         }

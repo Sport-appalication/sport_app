@@ -53,7 +53,7 @@ public class LogInActivity2 extends AppCompatActivity implements View.OnClickLis
         }
         boolean check = connectionSql.logUser(emailS,passwordS);
         if(check == true){
-            startActivity(new Intent(this, SkippingActivity.class));
+            startActivity(new Intent(this, AppPageActivity2.class));
         }
         else{
             Toast.makeText(this, "fall", Toast.LENGTH_SHORT).show();

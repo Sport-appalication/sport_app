@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         logIn.setOnClickListener(this);
         signUp.setOnClickListener(this);
         if(islogin){
-            intent = new Intent(this, SkippingActivity.class);
+            intent = new Intent(this, AppPageActivity2.class);
             startActivity(intent);
         }
     }
