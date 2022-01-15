@@ -16,7 +16,7 @@ public class reminderReciver extends BroadcastReceiver {
         Intent i = new Intent(context,AppPageActivity2.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(context,0,i,0);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context,"foxandroid")
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context,"androidChanel")
                 .setSmallIcon(R.drawable.food_selected_icon)
                 .setContentTitle("StayFit")
                 .setContentText("workout time")

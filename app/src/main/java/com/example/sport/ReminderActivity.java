@@ -91,18 +91,11 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
                 .setHour(12)
                 .setMinute(0)
                 .build();
-        timePicker.show(getSupportFragmentManager(),"foxandroid");
+        timePicker.show(getSupportFragmentManager(),"androidChanel");
         timePicker.addOnPositiveButtonClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(timePicker.getHour() <12){
-                    showtime.setText(
-                            String.format("%02d",timePicker.getHour()-12 + " : " + String.format("%02d",timePicker.getMinute()) + "PM")
-                    );
-                }
-                else{
-                    showtime.setText(timePicker.getHour() + " : "  + timePicker.getMinute());
-                }
+                showtime.setText(timePicker.getHour() + " : "  + timePicker.getMinute());
                 calendar = Calendar.getInstance();
                 calendar.set(Calendar.HOUR_OF_DAY,timePicker.getHour());
                 calendar.set(Calendar.MINUTE,timePicker.getMinute());
@@ -117,7 +110,7 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
             CharSequence name = "foxandriodReminderChanenel";
             String description = "reminder work out";
             int Inportance = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel channel = new NotificationChannel("foxandroid",name,Inportance);
+            NotificationChannel channel = new NotificationChannel("androidChanel",name,Inportance);
             channel.setDescription(description);
 
             NotificationManager manager = getSystemService(NotificationManager.class);
