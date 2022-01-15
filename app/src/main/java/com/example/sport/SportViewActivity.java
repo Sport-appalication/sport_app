@@ -124,7 +124,7 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
                 }
                 else{
                     updatesesion();
-                    timer.setText("last one anf we done");
+                    timer.setText("last one and we done");
                     stop.setText("Done");
                 }
             }
