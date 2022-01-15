@@ -66,6 +66,9 @@ public class Sport_item_adapter extends RecyclerView.Adapter<Sport_item_adapter.
                     if(getAdapterPosition() == 6){
                         context.startActivity(new Intent(context, SkippingActivity.class));
                     }
+                    else if(getAdapterPosition() == 0){
+                        context.startActivity(new Intent(context, mapActivity2.class));
+                    }
                     else {
                         SportViewActivity.setSportView(sports.get(getAdapterPosition()));
                         Intent intent = new Intent(context, SportViewActivity.class);
