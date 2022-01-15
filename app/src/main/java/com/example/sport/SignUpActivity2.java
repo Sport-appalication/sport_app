@@ -64,7 +64,7 @@ public class SignUpActivity2 extends AppCompatActivity implements View.OnClickLi
             return;
         }
         if(passwordS.isEmpty()){
-            password.setError("please enter full username");
+            password.setError("please enter password");
             password.requestFocus();
             return;
         }
@@ -74,7 +74,7 @@ public class SignUpActivity2 extends AppCompatActivity implements View.OnClickLi
             return;
         }
         if(emailS.isEmpty()){
-            email.setError("please enter full username");
+            email.setError("please enter email");
             email.requestFocus();
             return;
         }
@@ -89,7 +89,7 @@ public class SignUpActivity2 extends AppCompatActivity implements View.OnClickLi
             Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(this, "fall", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "something went wrong please try again", Toast.LENGTH_SHORT).show();
         }
     }
 }

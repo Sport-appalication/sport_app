@@ -64,7 +64,7 @@ public class LogInActivity2 extends AppCompatActivity implements View.OnClickLis
             startActivity(new Intent(this, AppPageActivity2.class));
         }
         else{
-            Toast.makeText(this, "fall", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please check your details and try again", Toast.LENGTH_SHORT).show();
         }
     }
 }
