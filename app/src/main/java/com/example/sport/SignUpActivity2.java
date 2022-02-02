@@ -59,37 +59,37 @@ public class SignUpActivity2 extends AppCompatActivity implements View.OnClickLi
         String passwordS = password.getText().toString();
         String emailS = email.getText().toString();
         if(usernameS.isEmpty()){
-            username.setError("please enter full username");
+            username.setError("Please enter full username");
             username.requestFocus();
             return;
         }
         if(passwordS.isEmpty()){
-            password.setError("please enter password");
+            password.setError("Please enter password");
             password.requestFocus();
             return;
         }
         if(passwordS.length() < 10){
-            password.setError("ivalid password min 10 characters");
+            password.setError("Invalid password min 10 characters");
             password.requestFocus();
             return;
         }
         if(emailS.isEmpty()){
-            email.setError("please enter email");
+            email.setError("Please enter email");
             email.requestFocus();
             return;
         }
         if(!Patterns.EMAIL_ADDRESS.matcher(emailS).matches()){
-            email.setError("please enter valid email");
+            email.setError("Please enter valid email");
             email.requestFocus();
             return;
         }
         user = new User(usernameS,emailS,passwordS);
         boolean check = connectionSql.registerUser(user);
         if(check == true){
-            Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(this, "something went wrong please try again", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Something Went Wrong Please Try Again", Toast.LENGTH_SHORT).show();
         }
     }
 }

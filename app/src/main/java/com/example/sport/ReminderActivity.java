@@ -82,7 +82,7 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
         Intent intent= new Intent(this,reminderReciver.class);
         pendingIntent = PendingIntent.getBroadcast(this,0,intent,0);
         alarmManager.setInexactRepeating(alarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),alarmManager.INTERVAL_DAY,pendingIntent);
-        Toast.makeText(this, "Reminder set", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Reminder Set", Toast.LENGTH_SHORT).show();
     }
 
     private void showTimer() {

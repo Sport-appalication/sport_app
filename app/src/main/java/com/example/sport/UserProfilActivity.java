@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -22,6 +24,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import java.util.HashMap;
+
 public class UserProfilActivity extends AppCompatActivity implements View.OnClickListener {
     private RecyclerView rview;
     Intent intent;
@@ -30,6 +34,7 @@ public class UserProfilActivity extends AppCompatActivity implements View.OnClic
     private FirebaseUser user;
     private DatabaseReference reference;
     private String userId;
+    private User userObject;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,10 +57,10 @@ public class UserProfilActivity extends AppCompatActivity implements View.OnClic
         reference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                User user = snapshot.getValue(User.class);
-                if(user !=null){
+                userObject = snapshot.getValue(User.class);
+                if(userObject !=null){
                     username = findViewById(R.id.user_name);
-                    String userusername = user.getUsername();
+                    String userusername = userObject.getUsername();
                     username.setText(userusername);
                 }
             }

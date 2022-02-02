@@ -51,8 +51,8 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
         numberofstep = findViewById(R.id.textStep);
         sportname.setText(sport.getName());
         sesionView = findViewById(R.id.sesioncount);
-        numberofstep.setText("Number of Step: "+sport.getNumberofstep());
-        numberofseion.setText("NUmber of Sesion: "+sport.getNumberofsesion());
+        numberofstep.setText("Number of reaps: "+sport.getNumberofstep());
+        numberofseion.setText("number of sesion: "+sport.getNumberofsesion());
         start = findViewById(R.id.startbtm);
         timer = findViewById(R.id.timertext);
         detail = findViewById(R.id.sportdetails);
@@ -118,13 +118,13 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
             public void onFinish() {
                 cunumofsesion++;
                 if(cunumofsesion < sport.getNumberofsesion()) {
-                    timer.setText("let go again");
+                    timer.setText("Let go again");
                     updatesesion();
                     finish.setVisibility(View.VISIBLE);
                 }
                 else{
                     updatesesion();
-                    timer.setText("last one and we done");
+                    timer.setText("Last one and we done");
                     stop.setText("Done");
                 }
             }
@@ -134,7 +134,7 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
         int minute = (int) (timeLeft /1000) / 60;
         int seconds = (int) (timeLeft /1000) % 60;
         String timertext = String.format(Locale.getDefault(),"%02d : %02d",minute,seconds);
-        timertext = "cool down \n" +"   "+ timertext;
+        timertext = "Cool Down \n" +"   "+ timertext;
         timer.setText(timertext);
     }
     public void  restart(){
@@ -144,7 +144,7 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
         timer.setText("");
         finish.setVisibility(View.VISIBLE);
         sesionView.setText("Sesion: 1");
-        stop.setText("stop");
+        stop.setText("Stop");
         cunumofsesion = 1;
     }
     public void updatesesion(){

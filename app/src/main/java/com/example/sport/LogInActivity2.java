@@ -45,17 +45,17 @@ public class LogInActivity2 extends AppCompatActivity implements View.OnClickLis
         String passwordS = password.getText().toString();
         String emailS = email.getText().toString();
         if(passwordS.isEmpty()){
-            password.setError("please enter password");
+            password.setError("Please enter password");
             password.requestFocus();
             return;
         }
         if(emailS.isEmpty()){
-            email.setError("please enter email address");
+            email.setError("Please enter email address");
             email.requestFocus();
             return;
         }
         if(!Patterns.EMAIL_ADDRESS.matcher(emailS).matches()){
-            email.setError("please enter valid email");
+            email.setError("Please enter valid email");
             email.requestFocus();
             return;
         }
