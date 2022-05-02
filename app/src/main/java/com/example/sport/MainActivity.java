@@ -47,4 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+    }
 }

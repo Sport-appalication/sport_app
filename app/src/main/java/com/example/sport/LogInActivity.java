@@ -29,6 +29,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         signUp.setOnClickListener(this);
         login.setOnClickListener(this);
         passwordReset.setOnClickListener(this);
+
     }
 
     @Override
@@ -47,6 +48,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
                 break;
         }
     }
+
     public void logUser(){
         String passwordS = password.getText().toString();
         String emailS = email.getText().toString();
@@ -76,5 +78,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         else if(check.getLog() == Log.Logs.LoginSuccess){
             startActivity(new Intent(this, AppPageActivity.class));
         }
+
+
     }
 }

@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sport.DetailsActivity;
+import com.example.sport.LevelActivity;
 import com.example.sport.MainActivity;
 import com.example.sport.R;
 import com.example.sport.ReminderActivity;
@@ -30,6 +31,7 @@ public class UserSettingAdapter extends RecyclerView.Adapter<UserSettingAdapter.
     public UserSettingAdapter(Context context) {
         settings.add(new SettingItem("Details", R.drawable.detail_icon));
         settings.add(new SettingItem("Reminder",R.drawable.schule_icon));
+        settings.add(new SettingItem("Levels",R.drawable.ic_action_name));
         settings.add(new SettingItem("Log Out",R.drawable.logout_icon));
         this.context = context;
     }
@@ -57,6 +59,9 @@ public class UserSettingAdapter extends RecyclerView.Adapter<UserSettingAdapter.
                         context.startActivity(new Intent(context, ReminderActivity.class));
                         break;
                     case 2:
+                        context.startActivity(new Intent(context, LevelActivity.class));
+                        break;
+                    case 3:
                         databaseControl.logout();
                         context.startActivity(new Intent(context, MainActivity.class));
                         break;

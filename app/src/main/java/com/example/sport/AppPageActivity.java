@@ -1,5 +1,6 @@
 package com.example.sport;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,9 +9,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.sport.adapter.Sport_item_adapter;
+import com.example.sport.database.DatabaseConnection;
+import com.example.sport.database.DatabaseControl;
 import com.example.sport.exercise.Sport;
+import com.example.sport.user.User;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -18,6 +28,9 @@ public class AppPageActivity extends AppCompatActivity implements View.OnClickLi
     private RecyclerView rviewSport;
     private ImageView exercise,food,profil;
     Intent intent;
+    private DatabaseConnection connection;
+    private FirebaseUser user;
+    private User userObject;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,20 +66,47 @@ public class AppPageActivity extends AppCompatActivity implements View.OnClickLi
         advanced.add(new Sport("Crunches", "https://flabfix.com/wp-content/uploads/2019/05/Crunches.gif", 15, 15, R.mipmap.crusfinal));
         advanced.add(new Sport("Dips", "https://flabfix.com/wp-content/uploads/2019/05/Dips.gif", 15, 15, R.mipmap.dipsfinal));
         advanced.add(new Sport("Step Up Lunge", "https://flabfix.com/wp-content/uploads/2019/06/Step-Up-Lunge.gif",15, 15, R.mipmap.stepuplungefinal));
-        advanced.add(new Sport("Skipping Rope", "", 5, 5, R.mipmap.skippingropefinal));
+        advanced.add(new Sport("Skipping Rope", "", 15, 15, R.mipmap.skippingropefinal));
         Sport_item_adapter adapter = new Sport_item_adapter(this);
-
-        adapter.setSports(advanced);
-        rviewSport.setAdapter(adapter);
-        rviewSport.setLayoutManager(new LinearLayoutManager(this));
+        DatabaseControl control = new DatabaseControl();
+        control.updateLevel(2);
+        connection = new DatabaseConnection();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user !=null) {
+            connection.getReference().child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    userObject = snapshot.getValue(User.class);
+                    System.out.println(userObject.getLevel());
+                    if(userObject !=null){
+                        if(userObject.getLevel() == 1) {
+                            adapter.setSports(beginner);
+                        }
+                        else if(userObject.getLevel() == 2){
+                            adapter.setSports(intermediate);
+                        }
+                        else if(userObject.getLevel() == 3){
+                            adapter.setSports(advanced);
+                        }
+                        rviewSport.setAdapter(adapter);
+                        rviewSport.setLayoutManager(new LinearLayoutManager(AppPageActivity.this));
+                    }
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(AppPageActivity.this, "something wrong happened", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        else {
+            Toast.makeText(this, "something wrong", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.exercise_link:
-                intent = new Intent(this, AppPageActivity.class);
-                startActivity(intent);
                 break;
             case R.id.food_link:
                 intent = new Intent(this, NutritionActivity.class);

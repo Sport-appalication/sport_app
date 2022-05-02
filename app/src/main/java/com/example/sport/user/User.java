@@ -3,7 +3,6 @@ package com.example.sport.user;
 public class User {
     private String username;
     private String email;
-    private int id;
     private int level;
 
     public User(String username, String email, int level) {
@@ -30,11 +29,11 @@ public class User {
         this.email = email;
     }
 
-    public int getId() {
-        return id;
+    public int getLevel() {
+        return level;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setLevel(int level) {
+        this.level = level;
     }
 }

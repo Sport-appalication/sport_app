@@ -19,7 +19,7 @@ import com.example.sport.R;
 import com.example.sport.SkippingActivity;
 import com.example.sport.SportViewActivity;
 import com.example.sport.exercise.Sport;
-import com.example.sport.mapActivity;
+import com.example.sport.RunningActivity;
 
 import java.util.ArrayList;
 
@@ -72,7 +72,7 @@ public class Sport_item_adapter extends RecyclerView.Adapter<Sport_item_adapter.
                         context.startActivity(new Intent(context, SkippingActivity.class));
                     }
                     else if(getAdapterPosition() == 0){
-                        context.startActivity(new Intent(context, mapActivity.class));
+                        context.startActivity(new Intent(context, RunningActivity.class));
                     }
                     else {
                         SportViewActivity.setSportView(sports.get(getAdapterPosition()));

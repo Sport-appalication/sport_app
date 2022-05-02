@@ -118,9 +118,8 @@ public class NutritionActivity extends AppCompatActivity implements View.OnClick
                 startActivity(intent);
                 break;
             case R.id.food_link:
-                intent = new Intent(this, NutritionActivity.class);
-                startActivity(intent);
                 break;
+
             case R.id.profil_link:
                 intent = new Intent(this, UserProfilActivity.class);
                 startActivity(intent);

@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sport">
         <activity
+            android:name=".LevelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RunningActivity"
+            android:exported="false" />
+        <activity
             android:name=".PasswordForgotActivity"
             android:exported="false" />
         <activity

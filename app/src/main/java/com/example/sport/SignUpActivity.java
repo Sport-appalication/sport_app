@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.sport.database.DatabaseControl;
 import com.example.sport.user.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
     private boolean hasprofil = true;

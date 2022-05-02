@@ -81,8 +81,6 @@ public class UserProfilActivity extends AppCompatActivity implements View.OnClic
                 startActivity(intent);
                 break;
             case R.id.profil_link:
-                intent = new Intent(this, UserProfilActivity.class);
-                startActivity(intent);
                 break;
             default:
                 break;

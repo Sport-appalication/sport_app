@@ -109,6 +109,22 @@ public class DatabaseControl {
         });
         return success;
     }
+    public boolean updateLevel(int level){
+        HashMap newusername = new HashMap();
+        newusername.put("level",level);
+        connection.getDatabaseReference().child(user.getUid()).updateChildren(newusername).addOnCompleteListener(new OnCompleteListener() {
+            @Override
+            public void onComplete(@NonNull Task task) {
+                if(task.isSuccessful()){
+                    success = true;
+                }
+                else {
+                    success = false;
+                }
+            }
+        });
+        return success;
+    }
     public void verifieEmail(FirebaseUser user){
         user.sendEmailVerification();
     }

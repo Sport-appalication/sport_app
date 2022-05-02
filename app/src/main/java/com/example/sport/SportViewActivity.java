@@ -43,8 +43,8 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
         food.setOnClickListener(this);
         profil.setOnClickListener(this);
         exercise.setImageResource(R.drawable.exercise_selected_icon);
-        sport.setNumberofsesion(5);
-        sport.setNumberofstep(5);
+        sport.setNumberofsesion(sport.getNumberofsesion());
+        sport.setNumberofstep(sport.getNumberofstep());
         sportname = findViewById(R.id.title);
         numberofseion = findViewById(R.id.textsesion);
         numberofstep = findViewById(R.id.textStep);
@@ -146,7 +146,7 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
         started.setVisibility(View.INVISIBLE);
         timer.setText("");
         finish.setVisibility(View.VISIBLE);
-        sesionView.setText("Sesion: 1");
+        sesionView.setText("Session: 1");
         stop.setText("Stop");
         cunumofsesion = 1;
     }

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".RunningActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp"
     android:gravity="center_horizontal"
-    tools:context=".mapActivity2">
-
+    android:padding="16dp">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,6 +34,10 @@
         android:id="@+id/bt_track"
         android:text="display track"
         android:textColor="@color/black"
+        android:backgroundTint="@color/blue"
         android:layout_marginTop="16dp"/>
-
 </LinearLayout>
+    <include
+        layout="@layout/navbar"/>
+
+</RelativeLayout>
