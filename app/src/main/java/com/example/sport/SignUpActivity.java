@@ -81,7 +81,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             email.requestFocus();
             return;
         }
-        user = new User(usernameS,emailS);
+        user = new User(usernameS,emailS,1);
         boolean check = databaseControl.registerUser(user,passwordS);
         if(check == true){
             Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();

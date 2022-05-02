@@ -2,21 +2,21 @@ package com.example.sport.exercise;
 
 public class Sport {
     private String name;
-    private String description;
     private String imageUrl;
     private int numberofsesion = 5;
     private int numberofstep = 5;
     private int icon;
 
-    public Sport(String name, String description,String imageUrl,int icon) {
+    public Sport(String name, String imageUrl, int numberofsesion, int numberofstep, int icon) {
         this.name = name;
-        this.description = description;
         this.imageUrl = imageUrl;
+        this.numberofsesion = numberofsesion;
+        this.numberofstep = numberofstep;
         this.icon = icon;
     }
-    public Sport(String name, String description,int icon) {
+
+    public Sport(String name, int icon) {
         this.name = name;
-        this.description = description;
         this.icon = icon;
     }
 
@@ -38,10 +38,6 @@ public class Sport {
 
     public void setNumberofstep(int numberofstep) {
         this.numberofstep = numberofstep;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public String getImageUrl() {

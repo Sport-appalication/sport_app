@@ -4,11 +4,14 @@ public class User {
     private String username;
     private String email;
     private int id;
+    private int level;
 
-    public User(String username, String email) {
+    public User(String username, String email, int level) {
         this.username = username;
         this.email = email;
+        this.level = level;
     }
+
     public User(){}
 
     public String getUsername() {
