@@ -7,11 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.sport.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button logIn;
@@ -31,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         logIn.setOnClickListener(this);
         signUp.setOnClickListener(this);
         if(islogin){
-            intent = new Intent(this, AppPageActivity2.class);
+            intent = new Intent(this, AppPageActivity.class);
             startActivity(intent);
         }
     }
@@ -40,11 +36,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.loginLink:
-                intent = new Intent(this, LogInActivity2.class);
+                intent = new Intent(this, LogInActivity.class);
                 startActivity(intent);
                 break;
             case R.id.signuplink:
-                intent = new Intent(this, SignUpActivity2.class);
+                intent = new Intent(this, SignUpActivity.class);
                 startActivity(intent);
                 break;
             default:

@@ -1,4 +1,4 @@
-package com.example.sport;
+package com.example.sport.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,16 +13,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sport.DetailsActivity;
+import com.example.sport.MainActivity;
+import com.example.sport.R;
+import com.example.sport.ReminderActivity;
+import com.example.sport.SettingItem;
+import com.example.sport.database.DatabaseConnection;
+import com.example.sport.database.DatabaseControl;
+
 import java.util.ArrayList;
 
 public class UserSettingAdapter extends RecyclerView.Adapter<UserSettingAdapter.Viewholds>{
     private ArrayList<SettingItem> settings = new ArrayList<>();
     private Context context;
-    ConnectionSql connectionSql = new ConnectionSql();
+    DatabaseControl databaseControl = new DatabaseControl();
     public UserSettingAdapter(Context context) {
-        settings.add(new SettingItem("deatil",R.drawable.detail_icon));
-        settings.add(new SettingItem("schule",R.drawable.schule_icon));
-        settings.add(new SettingItem("Log out",R.drawable.logout_icon));
+        settings.add(new SettingItem("Details", R.drawable.detail_icon));
+        settings.add(new SettingItem("Reminder",R.drawable.schule_icon));
+        settings.add(new SettingItem("Log Out",R.drawable.logout_icon));
         this.context = context;
     }
 
@@ -36,20 +44,20 @@ public class UserSettingAdapter extends RecyclerView.Adapter<UserSettingAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull Viewholds holder, @SuppressLint("RecyclerView") int position) {
-        holder.icon.setImageResource(settings.get(position).imageUrl);
+        holder.icon.setImageResource(settings.get(position).getImageUrl());
         holder.tview.setText(settings.get(position).getText());
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 switch (position){
                     case 0:
-                        context.startActivity(new Intent(context,DetailsActivity.class));
+                        context.startActivity(new Intent(context, DetailsActivity.class));
                         break;
                     case 1:
-                        context.startActivity(new Intent(context,ReminderActivity.class));
+                        context.startActivity(new Intent(context, ReminderActivity.class));
                         break;
                     case 2:
-                        connectionSql.logout();
+                        databaseControl.logout();
                         context.startActivity(new Intent(context, MainActivity.class));
                         break;
                     default:

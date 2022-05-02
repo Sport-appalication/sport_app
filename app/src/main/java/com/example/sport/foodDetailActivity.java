@@ -1,34 +1,14 @@
 package com.example.sport;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttp;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import com.example.sport.food.Food;
 
 public class foodDetailActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView Foodname,Fat,Calorie;
@@ -61,7 +41,7 @@ public class foodDetailActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.exercise_link:
-                startActivity(new Intent(this, AppPageActivity2.class));
+                startActivity(new Intent(this, AppPageActivity.class));
                 break;
             case R.id.food_link:
                 startActivity( new Intent(this, NutritionActivity.class));

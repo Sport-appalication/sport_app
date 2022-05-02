@@ -9,16 +9,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.sport.adapter.Sport_item_adapter;
+import com.example.sport.exercise.Sport;
+
 import java.util.ArrayList;
 
-public class AppPageActivity2 extends AppCompatActivity implements View.OnClickListener {
+public class AppPageActivity extends AppCompatActivity implements View.OnClickListener {
     private RecyclerView rviewSport;
     private ImageView exercise,food,profil;
     Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_app_page2);
+        setContentView(R.layout.activity_app_page);
         rviewSport = findViewById(R.id.sportcardv);
         exercise = findViewById(R.id.exercise_link);
         food = findViewById(R.id.food_link);
@@ -45,7 +48,7 @@ public class AppPageActivity2 extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.exercise_link:
-                intent = new Intent(this, AppPageActivity2.class);
+                intent = new Intent(this, AppPageActivity.class);
                 startActivity(intent);
                 break;
             case R.id.food_link:

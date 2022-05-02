@@ -7,13 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class mapActivity2 extends AppCompatActivity implements View.OnClickListener {
+public class mapActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageView exercise,food,profil;
     private Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map2);
+        setContentView(R.layout.activity_map);
         exercise = findViewById(R.id.exercise_link);
         food = findViewById(R.id.food_link);
         profil = findViewById(R.id.profil_link);
@@ -27,7 +27,7 @@ public class mapActivity2 extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.exercise_link:
-                intent = new Intent(this, AppPageActivity2.class);
+                intent = new Intent(this, AppPageActivity.class);
                 startActivity(intent);
                 break;
             case R.id.food_link:

@@ -22,7 +22,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:text="Nutrition"
-            android:textColor="@color/black"
+            android:textColor="@color/blue"
             android:textSize="30dp"
             android:textStyle="bold" />
 

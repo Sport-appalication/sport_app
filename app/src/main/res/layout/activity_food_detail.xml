@@ -10,26 +10,28 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         >
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Food Details"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        android:textStyle="bold" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/foodnameLabel"
-        android:layout_below="@id/title"
-        android:layout_marginTop="20dp"
-        android:text="FoodName"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Food Details"
+            android:textColor="@color/blue"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/foodnameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Food Name"
+            android:textColor="@color/blue"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
     <TextView
         android:id="@+id/foodname"
@@ -38,20 +40,21 @@
         android:layout_below="@id/foodnameLabel"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="FoodName"
+        android:text=""
         android:textColor="@color/black"
         android:textSize="20dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Fatlabel"
-        android:layout_below="@id/foodname"
-        android:layout_marginTop="20dp"
-        android:text="Fat"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/Fatlabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/foodname"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Fat"
+            android:textColor="@color/blue"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Fat"
@@ -60,27 +63,28 @@
         android:layout_below="@id/Fatlabel"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Fat"
+        android:text=""
         android:textColor="@color/black"
         android:textSize="20dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/callorieLabel"
-        android:layout_below="@id/Fat"
-        android:layout_marginTop="20dp"
-        android:text="callorie"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/callorieLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Fat"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="calorie"
+            android:textColor="@color/blue"
+            android:textSize="20dp"
+            android:textStyle="bold" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/callorie"
         android:layout_below="@id/callorieLabel"
         android:layout_marginTop="10dp"
-        android:text="callorie"
+        android:text=""
         android:layout_centerHorizontal="true"
         android:textColor="@color/black"
         android:textSize="20dp" />

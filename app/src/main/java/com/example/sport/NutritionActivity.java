@@ -13,6 +13,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.sport.adapter.FoodViewAdapter;
+import com.example.sport.food.Food;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -111,7 +114,7 @@ public class NutritionActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.exercise_link:
-                intent = new Intent(this, AppPageActivity2.class);
+                intent = new Intent(this, AppPageActivity.class);
                 startActivity(intent);
                 break;
             case R.id.food_link:

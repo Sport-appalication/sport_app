@@ -10,22 +10,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.sport.database.DatabaseConnection;
+import com.example.sport.database.DatabaseControl;
 
-public class LogInActivity2 extends AppCompatActivity implements View.OnClickListener {
+public class LogInActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText password,email;
-    private Button login,signUp;
-    ConnectionSql connectionSql= new ConnectionSql();
+    private Button login,signUp,passwordReset;
+    DatabaseControl databaseControl = new DatabaseControl();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_log_in2);
+        setContentView(R.layout.activity_log_in);
         password = findViewById(R.id.password);
         email = findViewById(R.id.Email);
         login = findViewById(R.id.loginbtm);
         signUp = findViewById(R.id.signuplink);
+        passwordReset = findViewById(R.id.ResetPassword);
         signUp.setOnClickListener(this);
         login.setOnClickListener(this);
+        passwordReset.setOnClickListener(this);
     }
 
     @Override
@@ -35,7 +38,10 @@ public class LogInActivity2 extends AppCompatActivity implements View.OnClickLis
                 logUser();
                 break;
             case R.id.signuplink:
-                startActivity(new Intent(this, SignUpActivity2.class));
+                startActivity(new Intent(this, SignUpActivity.class));
+                break;
+            case R.id.ResetPassword:
+                startActivity(new Intent(this, PasswordForgotActivity.class));
                 break;
             default:
                 break;
@@ -59,12 +65,16 @@ public class LogInActivity2 extends AppCompatActivity implements View.OnClickLis
             email.requestFocus();
             return;
         }
-        boolean check = connectionSql.logUser(emailS,passwordS);
-        if(check == true){
-            startActivity(new Intent(this, AppPageActivity2.class));
+        Log check = databaseControl.logUser(emailS,passwordS);
+        System.out.println(check.getLog());
+        if(check.getLog() == Log.Logs.EmailVerification){
+            Toast.makeText(this, "Please check your index to verify email", Toast.LENGTH_SHORT).show();
         }
-        else{
+        else if(check.getLog() == Log.Logs.LoginFailed){
             Toast.makeText(this, "Please check your details and try again", Toast.LENGTH_SHORT).show();
+        }
+        else if(check.getLog() == Log.Logs.LoginSuccess){
+            startActivity(new Intent(this, AppPageActivity.class));
         }
     }
 }

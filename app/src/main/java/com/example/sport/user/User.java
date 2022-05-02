@@ -1,15 +1,13 @@
-package com.example.sport;
+package com.example.sport.user;
 
 public class User {
     private String username;
     private String email;
     private int id;
-    private String password;
 
-    public User(String username, String email, String password) {
+    public User(String username, String email) {
         this.username = username;
         this.email = email;
-        this.password = password;
     }
     public User(){}
 
@@ -35,13 +33,5 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword( String password) {
-        this.password = password;
     }
 }

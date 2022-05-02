@@ -9,13 +9,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true">
+
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="Reminder"
-            android:textColor="@color/black"
+            android:textColor="@color/blue"
             android:textSize="30dp"
             android:textStyle="bold" />
 
@@ -39,7 +40,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:backgroundTint="@color/blue"
-            android:text="pick time" />
+            android:text="pick a time" />
 
         <Button
             android:id="@+id/setTime"
@@ -59,7 +60,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:backgroundTint="@color/blue"
-            android:text="cancel Remider" />
+            android:text="cancel Reminder" />
 
     </RelativeLayout>
     <include

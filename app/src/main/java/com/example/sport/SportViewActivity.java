@@ -3,7 +3,6 @@ package com.example.sport;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.nfc.TagLostException;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -13,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.sport.exercise.Sport;
 
 import java.util.Locale;
 
@@ -30,7 +30,6 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
     public static void setSportView(Sport sport) {
         SportViewActivity.sport = sport;
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +51,7 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
         sportname.setText(sport.getName());
         sesionView = findViewById(R.id.sesioncount);
         numberofstep.setText("Number of reaps: "+sport.getNumberofstep());
-        numberofseion.setText("number of sesion: "+sport.getNumberofsesion());
+        numberofseion.setText("number of session: "+sport.getNumberofsesion());
         start = findViewById(R.id.startbtm);
         timer = findViewById(R.id.timertext);
         detail = findViewById(R.id.sportdetails);
@@ -91,7 +90,7 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.exercise_link:
-                intent = new Intent(this, AppPageActivity2.class);
+                intent = new Intent(this, AppPageActivity.class);
                 startActivity(intent);
                 break;
             case R.id.food_link:
@@ -106,6 +105,7 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
                 break;
         }
     }
+
     public void startTime() {
         countDownTimer = new CountDownTimer(startTime,1000) {
             @Override
@@ -118,25 +118,28 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
             public void onFinish() {
                 cunumofsesion++;
                 if(cunumofsesion < sport.getNumberofsesion()) {
-                    timer.setText("Let go again");
+                    timer.setText("" + (sport.getNumberofsesion() - cunumofsesion +1)+ " More \n" +
+                            "Go Again");
                     updatesesion();
                     finish.setVisibility(View.VISIBLE);
                 }
                 else{
                     updatesesion();
-                    timer.setText("Last one and we done");
+                    timer.setText("Last One");
                     stop.setText("Done");
                 }
             }
         }.start();
     }
+
     public void updateText(){
         int minute = (int) (timeLeft /1000) / 60;
         int seconds = (int) (timeLeft /1000) % 60;
         String timertext = String.format(Locale.getDefault(),"%02d : %02d",minute,seconds);
-        timertext = "Cool Down \n" +"   "+ timertext;
+        timertext = "Cool Down Time\n" + timertext;
         timer.setText(timertext);
     }
+
     public void  restart(){
         countDownTimer.cancel();
         detail.setVisibility(View.VISIBLE);
@@ -147,6 +150,7 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
         stop.setText("Stop");
         cunumofsesion = 1;
     }
+
     public void updatesesion(){
         sesionView.setText("Sesion: " + cunumofsesion);
     }

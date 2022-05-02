@@ -1,4 +1,4 @@
-package com.example.sport;
+package com.example.sport.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -12,9 +12,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
+import com.example.sport.R;
+import com.example.sport.SkippingActivity;
+import com.example.sport.SportViewActivity;
+import com.example.sport.exercise.Sport;
+import com.example.sport.mapActivity;
 
 import java.util.ArrayList;
 
@@ -52,7 +57,7 @@ public class Sport_item_adapter extends RecyclerView.Adapter<Sport_item_adapter.
     public class Viewhold extends RecyclerView.ViewHolder{
         private TextView tview;
         private RelativeLayout parent;
-        private Button start;
+        private CardView start;
         private ImageView icon;
         public Viewhold(@NonNull View itemView) {
             super(itemView);
@@ -67,7 +72,7 @@ public class Sport_item_adapter extends RecyclerView.Adapter<Sport_item_adapter.
                         context.startActivity(new Intent(context, SkippingActivity.class));
                     }
                     else if(getAdapterPosition() == 0){
-                        context.startActivity(new Intent(context, mapActivity2.class));
+                        context.startActivity(new Intent(context, mapActivity.class));
                     }
                     else {
                         SportViewActivity.setSportView(sports.get(getAdapterPosition()));

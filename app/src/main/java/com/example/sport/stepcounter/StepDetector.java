@@ -1,4 +1,4 @@
-package com.example.sport;
+package com.example.sport.stepcounter;
 
 public class StepDetector {
 

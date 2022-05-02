@@ -1,4 +1,4 @@
-package com.example.sport;
+package com.example.sport.food;
 
 public class Food {
     private String name;

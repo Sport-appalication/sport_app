@@ -1,4 +1,4 @@
-package com.example.sport;
+package com.example.sport.exercise;
 
 public class Sport {
     private String name;

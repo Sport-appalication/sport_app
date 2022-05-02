@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sport">
         <activity
+            android:name=".PasswordForgotActivity"
+            android:exported="false" />
+        <activity
             android:name=".SkippingActivity"
             android:exported="false" />
         <activity
@@ -24,7 +27,7 @@
             android:name=".DetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".mapActivity2"
+            android:name=".mapActivity"
             android:exported="false" />
         <activity
             android:name=".NutritionActivity"
@@ -36,16 +39,13 @@
             android:name=".UserProfilActivity"
             android:exported="false" />
         <activity
-            android:name=".AppPageActivity2"
+            android:name=".AppPageActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfilCreationActivity2"
+            android:name=".SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".LogInActivity2"
+            android:name=".LogInActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -57,7 +57,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".reminderReciver" />
+        <receiver android:name=".reminder.reminderReciver" />
     </application>
 
 </manifest>

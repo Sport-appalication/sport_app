@@ -1,4 +1,4 @@
-package com.example.sport;
+package com.example.sport.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -12,26 +12,31 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sport.database.DatabaseConnection;
+import com.example.sport.R;
+import com.example.sport.food.Food;
+import com.example.sport.foodDetailActivity;
+
 import java.util.ArrayList;
 
 public class FoodViewAdapter extends RecyclerView.Adapter<FoodViewAdapter.ViewholdView>{
     private ArrayList<Food> FoodList = new ArrayList<>();
     private Context context;
-    ConnectionSql connectionSql = new ConnectionSql();
+    DatabaseConnection databaseConnection = new DatabaseConnection();
     public FoodViewAdapter(Context context) {
         this.context = context;
     }
 
     @NonNull
     @Override
-    public com.example.sport.FoodViewAdapter.ViewholdView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public FoodViewAdapter.ViewholdView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.foodview,parent,false);
         ViewholdView holder = new ViewholdView(view);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull com.example.sport.FoodViewAdapter.ViewholdView holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(@NonNull FoodViewAdapter.ViewholdView holder, @SuppressLint("RecyclerView") int position) {
         holder.tview.setText(FoodList.get(position).getName());
     }
 

@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="sport"
-            android:textColor="@color/black"
+            android:textColor="@color/blue"
             android:textSize="30dp"
             android:textStyle="bold" />
 
@@ -50,7 +50,7 @@
                 android:layout_below="@+id/textStep"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
-                android:text="number of sesion:" />
+                android:text="number of session:" />
             <Button
                 android:id="@+id/startbtm"
                 android:layout_width="200dp"
@@ -86,6 +86,7 @@
                 android:textColor="@color/blue2"
                 android:textSize="30dp"
                 android:textStyle="bold"
+                android:gravity="center"
                 android:layout_marginTop="30dp"
                 android:layout_below="@+id/sesioncount"/>
             <Button

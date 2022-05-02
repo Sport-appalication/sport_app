@@ -1,8 +1,8 @@
 package com.example.sport;
 
 public class SettingItem {
-    String text;
-    int imageUrl;
+    private String text;
+    private int imageUrl;
 
     public SettingItem(String text, int imageUrl) {
         this.text = text;

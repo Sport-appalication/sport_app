@@ -1,4 +1,4 @@
-package com.example.sport;
+package com.example.sport.bodytype;
 
 public class BodyType {
     private String name;

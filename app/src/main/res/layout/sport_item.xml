@@ -10,21 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:backgroundTint="@color/blue2"
-        app:cardCornerRadius="20dp">
+        app:cardCornerRadius="20dp"
+        android:padding="600dp"
+        android:id="@+id/start">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@mipmap/ic_launcher"
             android:id="@+id/sporticon"
             />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="290dp"
-            android:layout_marginTop="70dp"
-            android:text="start"
-            android:backgroundTint="@color/blue"
-            android:id="@+id/start"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

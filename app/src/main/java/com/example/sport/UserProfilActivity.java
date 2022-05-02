@@ -12,8 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.example.sport.adapter.UserSettingAdapter;
+import com.example.sport.database.DatabaseConnection;
+import com.example.sport.user.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -22,17 +23,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
-import java.util.HashMap;
-
 public class UserProfilActivity extends AppCompatActivity implements View.OnClickListener {
     private RecyclerView rview;
     Intent intent;
     private ImageView exercise,food,profil;
     private TextView username;
     private FirebaseUser user;
-    private DatabaseReference reference;
+    private DatabaseConnection reference;
     private String userId;
     private User userObject;
     @Override
@@ -50,11 +47,11 @@ public class UserProfilActivity extends AppCompatActivity implements View.OnClic
         profil.setImageResource(R.drawable.profil_selected_icon);
         UserSettingAdapter adapter = new UserSettingAdapter(this);
         user = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference(User.class.getSimpleName());
+        reference = new DatabaseConnection();
         userId = user.getUid();
         rview.setAdapter(adapter);
         rview.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
-        reference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+        reference.getReference().child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 userObject = snapshot.getValue(User.class);
@@ -76,7 +73,7 @@ public class UserProfilActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.exercise_link:
-                intent = new Intent(this, AppPageActivity2.class);
+                intent = new Intent(this, AppPageActivity.class);
                 startActivity(intent);
                 break;
             case R.id.food_link:

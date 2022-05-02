@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sport.databinding.ActivityMainBinding;
+import com.example.sport.reminder.reminderReciver;
 import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
 
@@ -68,7 +69,7 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void cancelReminde() {
-        Intent intent= new Intent(this,reminderReciver.class);
+        Intent intent= new Intent(this, reminderReciver.class);
         pendingIntent = PendingIntent.getBroadcast(this,0,intent,0);
         if(alarmManager ==null){
             alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -122,7 +123,7 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.exercise_link:
-                startActivity(new Intent(this, AppPageActivity2.class));
+                startActivity(new Intent(this, AppPageActivity.class));
                 break;
             case R.id.food_link:
                 startActivity(new Intent(this, NutritionActivity.class));

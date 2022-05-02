@@ -4,31 +4,29 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.security.keystore.UserNotAuthenticatedException;
 import android.util.Patterns;
-import android.util.Printer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sport.database.DatabaseControl;
+import com.example.sport.user.User;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.sql.Connection;
-
-public class SignUpActivity2 extends AppCompatActivity implements View.OnClickListener {
+public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
     private boolean hasprofil = true;
     private TextView title;
     private EditText password,email,username;
     private Button signup,logIn;
-    ConnectionSql connectionSql= new ConnectionSql();
+    DatabaseControl databaseControl = new DatabaseControl();
     private User user;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up2);
+        setContentView(R.layout.activity_sign_up);
         title = findViewById(R.id.title);
         password = findViewById(R.id.password);
         email = findViewById(R.id.Email);
@@ -47,7 +45,7 @@ public class SignUpActivity2 extends AppCompatActivity implements View.OnClickLi
                 register();
                 break;
             case R.id.loginLink:
-                startActivity(new Intent(this, LogInActivity2.class));
+                startActivity(new Intent(this, LogInActivity.class));
                 break;
             default:
                 break;
@@ -83,8 +81,8 @@ public class SignUpActivity2 extends AppCompatActivity implements View.OnClickLi
             email.requestFocus();
             return;
         }
-        user = new User(usernameS,emailS,passwordS);
-        boolean check = connectionSql.registerUser(user);
+        user = new User(usernameS,emailS);
+        boolean check = databaseControl.registerUser(user,passwordS);
         if(check == true){
             Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
         }

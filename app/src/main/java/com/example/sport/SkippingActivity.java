@@ -13,7 +13,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class SkippingActivity extends AppCompatActivity implements SensorEventListener, StepListener , View.OnClickListener {
+import com.example.sport.stepcounter.StepDetector;
+import com.example.sport.stepcounter.StepListener;
+
+public class SkippingActivity extends AppCompatActivity implements SensorEventListener, StepListener, View.OnClickListener {
 
     private StepDetector simpleStepDetector;
     private SensorManager sensorManager;
@@ -99,7 +102,7 @@ public class SkippingActivity extends AppCompatActivity implements SensorEventLi
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.exercise_link:
-                startActivity(new Intent(this, AppPageActivity2.class));
+                startActivity(new Intent(this, AppPageActivity.class));
                 break;
             case R.id.food_link:
                 startActivity(new Intent(this, NutritionActivity.class));
