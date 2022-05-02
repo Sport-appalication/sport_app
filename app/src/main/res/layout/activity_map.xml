@@ -26,14 +26,12 @@
         android:layout_marginTop="8dp"
         android:background="@android:drawable/editbox_background"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/text_view"
-        android:textSize="24sp"
-        android:textStyle="bold"
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_track"
+        android:text="display track"
         android:textColor="@color/black"
-        android:gravity="center"/>
-
+        android:layout_marginTop="16dp"/>
 
 </LinearLayout>
