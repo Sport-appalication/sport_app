@@ -8,6 +8,8 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.sport.database.DatabaseConnection;
@@ -17,6 +19,8 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     private EditText password,email;
     private Button login,signUp,passwordReset;
     DatabaseControl databaseControl = new DatabaseControl();
+    private ProgressBar progressBar;
+    private RelativeLayout loginForm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +30,8 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         login = findViewById(R.id.loginbtm);
         signUp = findViewById(R.id.signuplink);
         passwordReset = findViewById(R.id.ResetPassword);
+        progressBar = findViewById(R.id.progress_circular_log);
+        loginForm = findViewById(R.id.loginform);
         signUp.setOnClickListener(this);
         login.setOnClickListener(this);
         passwordReset.setOnClickListener(this);
@@ -36,7 +42,11 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.loginbtm:
+                progressBar.setVisibility(View.VISIBLE);
+                loginForm.setVisibility(View.INVISIBLE);
                 logUser();
+                progressBar.setVisibility(View.INVISIBLE);
+                loginForm.setVisibility(View.VISIBLE);
                 break;
             case R.id.signuplink:
                 startActivity(new Intent(this, SignUpActivity.class));

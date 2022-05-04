@@ -5,11 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LogInActivity">
+    <ProgressBar
+        android:id="@+id/progress_circular_log"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/blue"
+        android:visibility="gone"/>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:id="@+id/loginform">
 
         <TextView
             android:id="@+id/title"

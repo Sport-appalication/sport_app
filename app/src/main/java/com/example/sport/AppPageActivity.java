@@ -9,6 +9,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
+import android.widget.Scroller;
 import android.widget.Toast;
 
 import com.example.sport.adapter.Sport_item_adapter;
@@ -27,7 +30,9 @@ import java.util.ArrayList;
 public class AppPageActivity extends AppCompatActivity implements View.OnClickListener {
     private RecyclerView rviewSport;
     private ImageView exercise,food,profil;
-    Intent intent;
+    private Intent intent;
+    private ProgressBar progressBar;
+    private ScrollView sports;
     private DatabaseConnection connection;
     private FirebaseUser user;
     private User userObject;
@@ -39,10 +44,14 @@ public class AppPageActivity extends AppCompatActivity implements View.OnClickLi
         exercise = findViewById(R.id.exercise_link);
         food = findViewById(R.id.food_link);
         profil = findViewById(R.id.profil_link);
+        progressBar= findViewById(R.id.progress_circular);
+        sports = findViewById(R.id.sports);
         exercise.setOnClickListener(this);
         food.setOnClickListener(this);
         profil.setOnClickListener(this);
         exercise.setImageResource(R.drawable.exercise_selected_icon);
+        sports.setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
         ArrayList<Sport> beginner = new ArrayList<>();
         beginner.add(new Sport("Running", R.mipmap.finalrun));
         beginner.add(new Sport("Wide Grip Push Ups", "https://flabfix.com/wp-content/uploads/2019/08/Wide-Grip-Push-Ups.gif", 5, 5,R.mipmap.pushuprun));
@@ -101,6 +110,8 @@ public class AppPageActivity extends AppCompatActivity implements View.OnClickLi
         else {
             Toast.makeText(this, "something wrong", Toast.LENGTH_SHORT).show();
         }
+        sports.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
     @Override
