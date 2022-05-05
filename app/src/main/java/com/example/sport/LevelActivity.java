@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.example.sport.database.DatabaseConnection;
 import com.example.sport.database.DatabaseControl;
 import com.example.sport.user.User;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,7 +30,6 @@ public class LevelActivity extends AppCompatActivity  implements View.OnClickLis
     private User userObject;
     private FirebaseUser user;
     private DatabaseConnection connection;
-    private ImageView exercise,food,profil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,13 +44,6 @@ public class LevelActivity extends AppCompatActivity  implements View.OnClickLis
         intermediate.setOnClickListener(this);
         advance.setOnClickListener(this);
         currentLevl = findViewById(R.id.currentLevel);
-        exercise = findViewById(R.id.exercise_link);
-        food = findViewById(R.id.food_link);
-        profil = findViewById(R.id.profil_link);
-        exercise.setOnClickListener(this);
-        food.setOnClickListener(this);
-        profil.setOnClickListener(this);
-        profil.setImageResource(R.drawable.profil_selected_icon);
 
         if(user !=null) {
             connection.getReference().child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -79,6 +73,29 @@ public class LevelActivity extends AppCompatActivity  implements View.OnClickLis
         else {
             Toast.makeText(this, "something wrong", Toast.LENGTH_SHORT).show();
         }
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navBar_level);
+        bottomNavigationView.setSelectedItemId(R.id.userProfilActivity);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.appPageActivity:
+                        startActivity(new Intent(LevelActivity.this, AppPageActivity.class));
+                        break;
+                    case R.id.nutritionActivity:
+                        startActivity(new Intent(LevelActivity.this, NutritionActivity.class));
+                        break;
+                    case R.id.userProfilActivity:
+                        startActivity(new Intent(LevelActivity.this, UserProfilActivity.class));
+                        break;
+                    default:
+                        break;
+                }
+
+                return false;
+            }
+        });
     }
 
     @Override
@@ -95,15 +112,6 @@ public class LevelActivity extends AppCompatActivity  implements View.OnClickLis
             case R.id.beginner:
                 databaseControl.updateLevel(1);
                 currentLevl.setText("Current level: Beginner");
-                break;
-            case R.id.exercise_link:
-                startActivity(new Intent(this, AppPageActivity.class));
-                break;
-            case R.id.food_link:
-                startActivity(new Intent(this, NutritionActivity.class));
-                break;
-            case R.id.profil_link:
-                startActivity(new Intent(this, UserProfilActivity.class));
                 break;
             default:
                 break;

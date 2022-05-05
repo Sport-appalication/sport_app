@@ -1,23 +1,26 @@
 package com.example.sport;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class RunningActivity extends AppCompatActivity implements View.OnClickListener{
+
+public class RunningActivity extends AppCompatActivity {
 
     private EditText etSource,etDestination;
     private Button btTrack;
-    private ImageView exercise,food,profil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,13 +28,6 @@ public class RunningActivity extends AppCompatActivity implements View.OnClickLi
         etSource = findViewById(R.id.et_source);
         etDestination = findViewById(R.id.et_destination);
         btTrack = findViewById(R.id.bt_track);
-        exercise = findViewById(R.id.exercise_link);
-        food = findViewById(R.id.food_link);
-        profil = findViewById(R.id.profil_link);
-        exercise.setOnClickListener(this);
-        food.setOnClickListener(this);
-        profil.setOnClickListener(this);
-        exercise.setImageResource(R.drawable.exercise_selected_icon);
         btTrack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,6 +45,29 @@ public class RunningActivity extends AppCompatActivity implements View.OnClickLi
                     //Display Track
                     DisplayTrack(sSource,sDestination);
                 }
+            }
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navBar_running);
+        bottomNavigationView.setSelectedItemId(R.id.appPageActivity);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.appPageActivity:
+                        startActivity(new Intent(RunningActivity.this, AppPageActivity.class));
+                        break;
+                    case R.id.nutritionActivity:
+                        startActivity(new Intent(RunningActivity.this, NutritionActivity.class));
+                        break;
+                    case R.id.userProfilActivity:
+                        startActivity(new Intent(RunningActivity.this, UserProfilActivity.class));
+                        break;
+                    default:
+                        break;
+                }
+
+                return false;
             }
         });
     }
@@ -77,23 +96,6 @@ public class RunningActivity extends AppCompatActivity implements View.OnClickLi
             //Start activity
             startActivity(intent);
 
-        }
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.exercise_link:
-                startActivity(new Intent(this, AppPageActivity.class));
-                break;
-            case R.id.food_link:
-                startActivity(new Intent(this, NutritionActivity.class));
-                break;
-            case R.id.profil_link:
-                startActivity(new Intent(this, UserProfilActivity.class));
-                break;
-            default:
-                break;
         }
     }
 }

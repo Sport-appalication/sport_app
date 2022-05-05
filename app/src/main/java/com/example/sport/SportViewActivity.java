@@ -1,10 +1,12 @@
 package com.example.sport;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,13 +15,14 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.sport.exercise.Sport;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Locale;
 
-public class SportViewActivity extends AppCompatActivity implements View.OnClickListener {
+public class SportViewActivity extends AppCompatActivity {
     private TextView sportname,numberofseion,numberofstep, timer,sesionView;
     private static Sport sport;
-    private ImageView exercise,food,profil,iconV;
+    private ImageView iconV;
     Intent intent;
     private long startTime = 3000;
     private CountDownTimer countDownTimer;
@@ -35,14 +38,7 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sport_view);
-        exercise = findViewById(R.id.exercise_link);
-        food = findViewById(R.id.food_link);
         iconV = findViewById(R.id.exerciseImage);
-        profil = findViewById(R.id.profil_link);
-        exercise.setOnClickListener(this);
-        food.setOnClickListener(this);
-        profil.setOnClickListener(this);
-        exercise.setImageResource(R.drawable.exercise_selected_icon);
         sport.setNumberofsesion(sport.getNumberofsesion());
         sport.setNumberofstep(sport.getNumberofstep());
         sportname = findViewById(R.id.title);
@@ -84,26 +80,29 @@ public class SportViewActivity extends AppCompatActivity implements View.OnClick
                 startTime();
             }
         });
-    }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.exercise_link:
-                intent = new Intent(this, AppPageActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.food_link:
-                intent = new Intent(this, NutritionActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.profil_link:
-                intent = new Intent(this, UserProfilActivity.class);
-                startActivity(intent);
-                break;
-            default:
-                break;
-        }
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navBar_sport);
+        bottomNavigationView.setSelectedItemId(R.id.appPageActivity);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.appPageActivity:
+                        startActivity(new Intent(SportViewActivity.this, AppPageActivity.class));
+                        break;
+                    case R.id.nutritionActivity:
+                        startActivity(new Intent(SportViewActivity.this, NutritionActivity.class));
+                        break;
+                    case R.id.userProfilActivity:
+                        startActivity(new Intent(SportViewActivity.this, UserProfilActivity.class));
+                        break;
+                    default:
+                        break;
+                }
+
+                return false;
+            }
+        });
     }
 
     public void startTime() {

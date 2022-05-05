@@ -1,5 +1,6 @@
 package com.example.sport;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,8 +17,9 @@ import android.widget.TextView;
 
 import com.example.sport.stepcounter.StepDetector;
 import com.example.sport.stepcounter.StepListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class SkippingActivity extends AppCompatActivity implements SensorEventListener, StepListener, View.OnClickListener {
+public class SkippingActivity extends AppCompatActivity implements SensorEventListener, StepListener {
 
     private StepDetector simpleStepDetector;
     private SensorManager sensorManager;
@@ -26,20 +29,11 @@ public class SkippingActivity extends AppCompatActivity implements SensorEventLi
     private TextView TvSteps;
     private Button BtnStart;
     private Button BtnStop;
-    private ImageView exercise,food,profil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skipping);
-
-        exercise = findViewById(R.id.exercise_link);
-        food = findViewById(R.id.food_link);
-        profil = findViewById(R.id.profil_link);
-        exercise.setOnClickListener(this);
-        food.setOnClickListener(this);
-        profil.setOnClickListener(this);
-        exercise.setImageResource(R.drawable.exercise_selected_icon);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         accel = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -74,8 +68,28 @@ public class SkippingActivity extends AppCompatActivity implements SensorEventLi
             }
         });
 
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navBar_skipping);
+        bottomNavigationView.setSelectedItemId(R.id.appPageActivity);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.appPageActivity:
+                        startActivity(new Intent(SkippingActivity.this, AppPageActivity.class));
+                        break;
+                    case R.id.nutritionActivity:
+                        startActivity(new Intent(SkippingActivity.this, NutritionActivity.class));
+                        break;
+                    case R.id.userProfilActivity:
+                        startActivity(new Intent(SkippingActivity.this, UserProfilActivity.class));
+                        break;
+                    default:
+                        break;
+                }
 
-
+                return false;
+            }
+        });
     }
 
 
@@ -96,22 +110,5 @@ public class SkippingActivity extends AppCompatActivity implements SensorEventLi
     public void step(long timeNs) {
         numSteps++;
         TvSteps.setText(TEXT_NUM_STEPS + numSteps);
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.exercise_link:
-                startActivity(new Intent(this, AppPageActivity.class));
-                break;
-            case R.id.food_link:
-                startActivity(new Intent(this, NutritionActivity.class));
-                break;
-            case R.id.profil_link:
-                startActivity(new Intent(this, UserProfilActivity.class));
-                break;
-            default:
-                break;
-        }
     }
 }

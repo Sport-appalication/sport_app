@@ -1,5 +1,6 @@
 package com.example.sport;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlarmManager;
@@ -10,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,15 +20,15 @@ import android.widget.Toast;
 
 import com.example.sport.databinding.ActivityMainBinding;
 import com.example.sport.reminder.reminderReciver;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
 
 import java.util.Calendar;
 
-public class ReminderActivity extends AppCompatActivity implements View.OnClickListener {
+public class ReminderActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private Button cancelReminder, setTime,picktime;
-    private ImageView exercise,food,profil;
     private MaterialTimePicker timePicker;
     private TextView showtime;
     private Calendar calendar;
@@ -36,13 +38,6 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reminder);
-        exercise = findViewById(R.id.exercise_link);
-        food = findViewById(R.id.food_link);
-        profil = findViewById(R.id.profil_link);
-        exercise.setOnClickListener(this);
-        food.setOnClickListener(this);
-        profil.setOnClickListener(this);
-        profil.setImageResource(R.drawable.profil_selected_icon);
         creatnotifchanel();
         cancelReminder = findViewById(R.id.cancelReminder);
         setTime = findViewById(R.id.setTime);
@@ -64,6 +59,29 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onClick(View view) {
                 cancelReminde();
+            }
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navBar_reminder);
+        bottomNavigationView.setSelectedItemId(R.id.userProfilActivity);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.appPageActivity:
+                        startActivity(new Intent(ReminderActivity.this, AppPageActivity.class));
+                        break;
+                    case R.id.nutritionActivity:
+                        startActivity(new Intent(ReminderActivity.this, NutritionActivity.class));
+                        break;
+                    case R.id.userProfilActivity:
+                        startActivity(new Intent(ReminderActivity.this, UserProfilActivity.class));
+                        break;
+                    default:
+                        break;
+                }
+
+                return false;
             }
         });
     }
@@ -116,23 +134,6 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
 
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel);
-        }
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.exercise_link:
-                startActivity(new Intent(this, AppPageActivity.class));
-                break;
-            case R.id.food_link:
-                startActivity(new Intent(this, NutritionActivity.class));
-                break;
-            case R.id.profil_link:
-                startActivity(new Intent(this, UserProfilActivity.class));
-                break;
-            default:
-                break;
         }
     }
 }

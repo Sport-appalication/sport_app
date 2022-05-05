@@ -17,7 +17,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
-    private boolean hasprofil = true;
     private TextView title;
     private EditText password,email,username;
     private Button signup,logIn;

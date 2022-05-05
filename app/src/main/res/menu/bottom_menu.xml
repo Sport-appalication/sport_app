@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/appPageActivity" android:title="exercise" android:icon="@drawable/exercise_icon"/>
+    <item android:id="@+id/nutritionActivity" android:title="nutrition" android:icon="@drawable/food_icon"/>
+    <item android:id="@+id/userProfilActivity" android:title="profil" android:icon="@drawable/profil_icon"/>
+</menu>

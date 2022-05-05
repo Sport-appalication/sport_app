@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -19,6 +20,8 @@ import com.example.sport.database.DatabaseConnection;
 import com.example.sport.database.DatabaseControl;
 import com.example.sport.exercise.Sport;
 import com.example.sport.user.User;
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -29,7 +32,6 @@ import java.util.ArrayList;
 
 public class AppPageActivity extends AppCompatActivity implements View.OnClickListener {
     private RecyclerView rviewSport;
-    private ImageView exercise,food,profil;
     private Intent intent;
     private ProgressBar progressBar;
     private ScrollView sports;
@@ -41,15 +43,8 @@ public class AppPageActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_page);
         rviewSport = findViewById(R.id.sportcardv);
-        exercise = findViewById(R.id.exercise_link);
-        food = findViewById(R.id.food_link);
-        profil = findViewById(R.id.profil_link);
         progressBar= findViewById(R.id.progress_circular);
         sports = findViewById(R.id.sports);
-        exercise.setOnClickListener(this);
-        food.setOnClickListener(this);
-        profil.setOnClickListener(this);
-        exercise.setImageResource(R.drawable.exercise_selected_icon);
         sports.setVisibility(View.INVISIBLE);
         progressBar.setVisibility(View.VISIBLE);
         ArrayList<Sport> beginner = new ArrayList<>();
@@ -81,6 +76,29 @@ public class AppPageActivity extends AppCompatActivity implements View.OnClickLi
         control.updateLevel(2);
         connection = new DatabaseConnection();
         user = FirebaseAuth.getInstance().getCurrentUser();
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navBar_app);
+        bottomNavigationView.setSelectedItemId(R.id.appPageActivity);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.appPageActivity:
+                        break;
+                    case R.id.nutritionActivity:
+                        intent = new Intent(AppPageActivity.this, NutritionActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.userProfilActivity:
+                        intent = new Intent(AppPageActivity.this, UserProfilActivity.class);
+                        startActivity(intent);
+                        break;
+                    default:
+                        break;
+                }
+
+                return false;
+            }
+        });
         if(user !=null) {
             connection.getReference().child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -116,19 +134,6 @@ public class AppPageActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.exercise_link:
-                break;
-            case R.id.food_link:
-                intent = new Intent(this, NutritionActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.profil_link:
-                intent = new Intent(this, UserProfilActivity.class);
-                startActivity(intent);
-                break;
-            default:
-                break;
-        }
+
     }
 }

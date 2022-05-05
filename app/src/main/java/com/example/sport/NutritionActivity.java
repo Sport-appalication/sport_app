@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.sport.adapter.FoodViewAdapter;
 import com.example.sport.food.Food;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -30,8 +32,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class NutritionActivity extends AppCompatActivity implements View.OnClickListener {
-    private ImageView exercise, nutrution,profil;
-    private Intent intent;
     private EditText searchBar;
     private TextView textEroor;
     private RecyclerView foodsView;
@@ -42,18 +42,33 @@ public class NutritionActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutrition);
-        exercise = findViewById(R.id.exercise_link);
-        nutrution = findViewById(R.id.food_link);
-        profil = findViewById(R.id.profil_link);
-        nutrution.setImageResource(R.drawable.food_selected_icon);
-        exercise.setOnClickListener(this);
-        nutrution.setOnClickListener(this);
-        profil.setOnClickListener(this);
         textEroor = findViewById(R.id.errorDisplay);
         searchBar = findViewById(R.id.search_bar);
         foodsView = findViewById(R.id.rFoodV);
         seachbtm = findViewById(R.id.searchBtm);
         seachbtm.setOnClickListener(this);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navBar_nutrution);
+        bottomNavigationView.setSelectedItemId(R.id.nutritionActivity);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.appPageActivity:
+                        startActivity(new Intent(NutritionActivity.this, AppPageActivity.class));
+                        break;
+                    case R.id.nutritionActivity:
+                        break;
+                    case R.id.userProfilActivity:
+                        startActivity(new Intent(NutritionActivity.this, UserProfilActivity.class));
+                        break;
+                    default:
+                        break;
+                }
+
+                return false;
+            }
+        });
     }
     public void setFood(String Respose){
         try {
@@ -113,17 +128,6 @@ public class NutritionActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.exercise_link:
-                intent = new Intent(this, AppPageActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.food_link:
-                break;
-
-            case R.id.profil_link:
-                intent = new Intent(this, UserProfilActivity.class);
-                startActivity(intent);
-                break;
             case R.id.searchBtm:
                 String food = searchBar.getText().toString();
                 if(food.isEmpty()){
