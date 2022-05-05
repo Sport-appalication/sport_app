@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.MenuItem;
@@ -30,6 +31,7 @@ public class SportViewActivity extends AppCompatActivity {
     private Button start,stop, finish;
     private RelativeLayout detail,started;
     int cunumofsesion = 1;
+    private MediaPlayer playSound;
     public static void setSportView(Sport sport) {
         SportViewActivity.sport = sport;
     }
@@ -54,6 +56,7 @@ public class SportViewActivity extends AppCompatActivity {
         started = findViewById(R.id.sportstared);
         finish = findViewById(R.id.finishsesion);
         stop = findViewById(R.id.stop);
+        playSound = MediaPlayer.create(this,R.raw.soundeffect);
         Glide.with(this)
                 .asGif()
                 .load(sport.getImageUrl())
@@ -62,7 +65,7 @@ public class SportViewActivity extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startTime();
+                timer.setText(sport.getNumberofstep() + " reps Go");
                 detail.setVisibility(View.INVISIBLE);
                 started.setVisibility(View.VISIBLE);
             }
@@ -115,9 +118,10 @@ public class SportViewActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
+                playSound.start();
                 cunumofsesion++;
                 if(cunumofsesion < sport.getNumberofsesion()) {
-                    timer.setText("" + (sport.getNumberofsesion() - cunumofsesion +1)+ " More \n" +
+                    timer.setText(sport.getNumberofstep() + " reps Go" + "\n" + (sport.getNumberofsesion() - cunumofsesion +1)+ " More session \n" +
                             "Go Again");
                     updatesesion();
                     finish.setVisibility(View.VISIBLE);
@@ -140,7 +144,6 @@ public class SportViewActivity extends AppCompatActivity {
     }
 
     public void  restart(){
-        countDownTimer.cancel();
         detail.setVisibility(View.VISIBLE);
         started.setVisibility(View.INVISIBLE);
         timer.setText("");
