@@ -3,5 +3,5 @@
 
     <item android:id="@+id/appPageActivity" android:title="exercise" android:icon="@drawable/exercise_icon"/>
     <item android:id="@+id/nutritionActivity" android:title="nutrition" android:icon="@drawable/food_icon"/>
-    <item android:id="@+id/userProfilActivity" android:title="profil" android:icon="@drawable/profil_icon"/>
+    <item android:id="@+id/userProfilActivity" android:title="profile" android:icon="@drawable/profil_icon"/>
 </menu>
