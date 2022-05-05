@@ -109,7 +109,7 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
                 boolean succuess = databaseControl.updateusenamre(usernameS);
                 if(succuess){
                     Toast.makeText(this, "name updated", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(this, DetailsActivity.class));
+                    username.setText(usernameS);
                 }
                 else{
                     Toast.makeText(this, "something went wrong", Toast.LENGTH_SHORT).show();
