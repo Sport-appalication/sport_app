@@ -80,7 +80,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         Log check = databaseControl.logUser(emailS,passwordS);
         System.out.println(check.getLog());
         if(check.getLog() == Log.Logs.EmailVerification){
-            Toast.makeText(this, "Please check your index to verify email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please check your indox to verify email", Toast.LENGTH_SHORT).show();
         }
         else if(check.getLog() == Log.Logs.LoginFailed){
             Toast.makeText(this, "Please check your details and try again", Toast.LENGTH_SHORT).show();
