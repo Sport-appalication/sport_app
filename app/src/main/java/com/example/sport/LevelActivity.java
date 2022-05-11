@@ -55,12 +55,15 @@ public class LevelActivity extends AppCompatActivity  implements View.OnClickLis
                     if(userObject !=null){
                         if(userObject.getLevel() == 1) {
                             currentLevl.setText("Current level: Beginner");
+                            databaseControl.updateLevel(1);
                         }
                         else if(userObject.getLevel() == 2){
                             currentLevl.setText("Current level: Intermediate");
+                            databaseControl.updateLevel(2);
                         }
                         else if(userObject.getLevel() == 3){
                             currentLevl.setText("Current level: Advance");
+                            databaseControl.updateLevel(3);
                         }
                     }
                 }

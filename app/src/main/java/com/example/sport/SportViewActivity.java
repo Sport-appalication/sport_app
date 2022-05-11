@@ -48,7 +48,7 @@ public class SportViewActivity extends AppCompatActivity {
         numberofstep = findViewById(R.id.textStep);
         sportname.setText(sport.getName());
         sesionView = findViewById(R.id.sesioncount);
-        numberofstep.setText("Number of reaps: "+sport.getNumberofstep());
+        numberofstep.setText("Number of reps: "+sport.getNumberofstep());
         numberofseion.setText("number of session: "+sport.getNumberofsesion());
         start = findViewById(R.id.startbtm);
         timer = findViewById(R.id.timertext);

@@ -73,7 +73,6 @@ public class AppPageActivity extends AppCompatActivity implements View.OnClickLi
         advanced.add(new Sport("Skipping Rope", "", 15, 15, R.mipmap.skippingropefinal));
         Sport_item_adapter adapter = new Sport_item_adapter(this);
         DatabaseControl control = new DatabaseControl();
-        control.updateLevel(2);
         connection = new DatabaseConnection();
         user = FirebaseAuth.getInstance().getCurrentUser();
         BottomNavigationView bottomNavigationView = findViewById(R.id.navBar_app);
