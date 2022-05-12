@@ -49,7 +49,7 @@ public class SportViewActivity extends AppCompatActivity {
         sportname.setText(sport.getName());
         sesionView = findViewById(R.id.sesioncount);
         numberofstep.setText("Number of reps: "+sport.getNumberofstep());
-        numberofseion.setText("number of session: "+sport.getNumberofsesion());
+        numberofseion.setText("Number of session: "+sport.getNumberofsesion());
         start = findViewById(R.id.startbtm);
         timer = findViewById(R.id.timertext);
         detail = findViewById(R.id.sportdetails);
@@ -154,6 +154,6 @@ public class SportViewActivity extends AppCompatActivity {
     }
 
     public void updatesesion(){
-        sesionView.setText("Sesion: " + cunumofsesion);
+        sesionView.setText("Session: " + cunumofsesion);
     }
 }
